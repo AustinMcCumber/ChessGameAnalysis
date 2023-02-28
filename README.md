@@ -1,7 +1,7 @@
 # Chess Game Analysis
 
 This repository contains code analyzing a dataset of 20,058 chess games from the website Lichess.org. The objective of this analysis was to determine 
-whether or not developing the Queen before the opponent does has a significant impact on win rates. 
+whether or not developing the queen before the opponent has an effect on game outcomes. 
 
 ### Data
 
@@ -11,14 +11,15 @@ columns such as: winner, white player rating, black player rating, a list of mov
 ### Process
 
 1. Data imported into R.
-2. Moves for each game were split into list. Iterated through each game to determine which player's queen moved first, if at all. 
+2. Moves for each game were split into list. Iterated through each game to determine which player's queen moved first, if at all. Dropped games
+where the queen was never moved.
 3. Filtered to include only games where specific conditions were met. A variety of parameters were adjusted and tested. For example:
 including only games where both players were rated under 2000, including only games where players were within 200 rating points of each other,
 and other combinations of these variables. For the final analysis, I chose to use the above examples for final analysis but the results were
 similar under all parameters I tested. 
 4. Created contingency table. 
-5. Tested for significance based on Chi-Squared test. Due to the large sample size, Cramer's V was also tested. 
-6. Plotted tables to visualize results. 
+5. Tested for significance based on Chi-Squared test and Cramer's V statistic.
+6. Plotted table to visualize results. 
 
 ### Results
 
@@ -27,7 +28,7 @@ The results are visualized in the bar chart below.
 ![PCTWIN](https://user-images.githubusercontent.com/98286027/221739170-fb448b24-1a7a-43b3-ab27-a34d72494e55.png)
 
 In the games analyzed, we can see that when White moves the queen first, they have a Win/Loss/Draw percentage split of 51/44.1/4.8.
-This is a significant differential between win and loss when White moves the queen first. It appears that White may have a small advantage.
+This seems to be a very large differential, and itt appears that White may have a small advantage.
 However, the same does not appear to be true for black, as the W/L split is nearly identical. 
 
 To further investigate the results, a Chi-Squared test of significance was conducted as well. At the alpha = .01 significance level, we find a
@@ -66,7 +67,7 @@ the Wayward Queen opening and its known lines.
 
 In the future, I will update this post to analyze data for specific time controls. I hypothesize that shorter time controls will result in an even higher win rate for 
 white when the queen is developed first. Additionally, I would like to check how the games ended - resignations, time outs, or mates. Openings should also be looked at 
-in these cases as well; I believe that the Wayward Queen and Scholar's Mate are likely common patterns here. 
+in these cases as well; I believe that the Wayward Queen and Scholar's Mate are likely common patterns here. Lastly, I would like to better understand why bringing the queen out first as Black seems to not have the same advantage. 
 
 # Technical
 
