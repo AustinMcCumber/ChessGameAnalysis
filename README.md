@@ -3,23 +3,22 @@
 This repository contains code analyzing a dataset of 20,058 chess games from the website Lichess.org. The objective of this analysis was to determine 
 whether or not developing the queen before the opponent has an effect on game outcomes. 
 
-### Data
+### Dataset
 
-A CSV file was scraped from the Lichess games database by Kaggle user Mitchell J (datasnaek). The data contains 20,058 different chess games and includes
-columns such as: winner, white player rating, black player rating, a list of moves for each game, and more. 
+A CSV file was created from a dataset scraped from the Lichess games database by Kaggle user Mitchell J (datasnaek). The dataset contains 20,058 different chess games and includes columns such as: winner, white player rating, black player rating, a list of moves for each game, and more. 
 
 ### Process
 
 1. Data imported into R.
-2. Moves for each game were split into list. Iterated through each game to determine which player's queen moved first, if at all. Dropped games
+2. Moves for each game were split into a list. Iterated through each game to determine which player's queen moved first, if at all. Dropped games
 where the queen was never moved.
 3. Filtered to include only games where specific conditions were met. A variety of parameters were adjusted and tested. For example:
 including only games where both players were rated under 2000, including only games where players were within 200 rating points of each other,
 and other combinations of these variables. For the final analysis, I chose to use the above examples for final analysis but the results were
 similar under all parameters I tested. 
 4. Created contingency table. 
-5. Tested for significance based on Chi-Squared test and Cramer's V statistic.
-6. Plotted table to visualize results. 
+5. Plotted table to visualize results. 
+6. Tested for significance based on Chi-Squared test and Cramer's V statistic.
 
 ### Results
 
@@ -28,25 +27,24 @@ The results are visualized in the bar chart below.
 ![PCTWIN](https://user-images.githubusercontent.com/98286027/221739170-fb448b24-1a7a-43b3-ab27-a34d72494e55.png)
 
 In the games analyzed, we can see that when White moves the queen first, they have a Win/Loss/Draw percentage split of 51/44.1/4.8.
-This seems to be a very large differential, and itt appears that White may have a small advantage.
+This seems to be a very large differential between wins and losses, and it appears that White may have a small advantage.
 However, the same does not appear to be true for black, as the W/L split is nearly identical. 
 
 To further investigate the results, a Chi-Squared test of significance was conducted as well. At the alpha = .01 significance level, we find a
-Chi-Squared value of 9.3511 and p-value = .00932, indicating that there is sufficent evidence to conclude that an association between which queen moves first
-and the outcome of the game exists. 
+Chi-Squared value of 9.3511 and p-value = .00932, indicating that there is sufficent evidence to conclude that there is an association between which queen moves first
+and the outcome of the game.
 
-However, because the sample size is large, it would be beneficial to also calculate Cramer's V statistic. This is based on the calculated Chi-Squared, but scaled
+However, because the sample size is large, it would be beneficial to also calculate Cramer's V statistic. This is based on the calculated Chi-Squared, but adjusted
 based on sample size. In our case, Cramer's V = .03371. Cramer's V is scaled so that values range from 0 to 1, with higher values indicating a stronger effect.
 Interestingly, we find a very week association between the variables now. Based on the bar plot, I believe the lack of diffeence in W/L percentage when black moves 
-the queen first is causing the statistical effect to appear lessened. 
+the queen first is causing the statistical effect to appear weaker. 
 
 ### Chess Specific Commentary
 
-This project was inspired by two things: the conventional wisdom and teachings that the queen should be held in reserve in the opening, and a very strange article I read 
-about the "Matrix Chess" system created by Bernard Parham, who was known to play the Wayward Queen opening in blitz games.
+This project was inspired by two things: the conventional wisdom and teachings that the queen should be held in reserve in the opening, and a very strange article I read about the "Matrix Chess" system created by Bernard Parham, who was known to develop his queen early (Wayward Queen opening) in blitz games.
 
-In my personal experience, I found that as a complete beginner I frequently lost to early queen attacks. As I advanced in chess (slightly!) I became better at defending
-against these attacks and taking advantage of the position, but still did make mistakes in shorter time controls. However, I was intrigued after reading about Matrix Chess. See the article [here](https://www.thechessdrum.net/talkingdrum/TheMatrix/index.html).
+In my personal experience, I found that as a complete beginner I frequently lost to early queen attacks. As I advanced in chess, I became better at defending
+against these attacks and taking advantage of the position, but I still made mistakes in shorter time controls. However, I was intrigued after reading about Matrix Chess. See the article [here](https://www.thechessdrum.net/talkingdrum/TheMatrix/index.html).
 
 To be clear, the Matrix Chess system is extremely unconventional and I do not advise attempting to learn it. However, its creator Bernard Parham notes that after observing 
 thousands of amateur games, he noticed that the players that attacked with the queen early nearly always won. I hypothesize that this is likely due to the increase in 
