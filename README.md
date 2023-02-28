@@ -50,7 +50,7 @@ To be clear, the Matrix Chess system is extremely unconventional and I do not ad
 thousands of amateur games, he noticed that the players that attacked with the queen early nearly always won. I hypothesize that this is likely due to the increase in 
 tactical opportunities that accompanies an early queen move. We know that at as rating decreases from Grandmaster to amateur, the percentage of games won due to tactical 
 shots increases dramatically. According to GM Axel Smith of "The Woodpecker Method", 42% of GM level games are lost due to tactical errors, while for players under rated under 
-2000 the percentage had increased to over 70%. 
+2000 the percentage increases to over 70%. 
 
 So, why is the traditional advice different? 
 
