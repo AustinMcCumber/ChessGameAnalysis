@@ -13,7 +13,7 @@ columns such as: winner, white player rating, black player rating, a list of mov
 1. Data imported into R.
 2. Moves for each game were split into list. Iterated through each game to determine which player's queen moved first, if at all. 
 3. Filtered to include only games where specific conditions were met. A variety of parameters were adjusted and tested. For example:
-including only games where both players were rated under 2000, including only games where players were within 200 rating points of eachother,
+including only games where both players were rated under 2000, including only games where players were within 200 rating points of each other,
 and other combinations of these variables. For the final analysis, I chose to use the above examples for final analysis but the results were
 similar under all parameters I tested. 
 4. Created contingency table. 
@@ -81,7 +81,9 @@ tidyverse
 rcompanion
 You can install these packages using the following command:
 
+```
 install.packages(c("dplyr", "readr", "stringr", "ggplot2", "tidyverse", "rcompanion"))
+```
 
 ### Usage
 
